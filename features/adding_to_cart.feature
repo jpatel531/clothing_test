@@ -4,9 +4,9 @@ Feature: As a user
 	Background:
 		When I am on the homepage
 
-	Scenario: logged out
-		Given I click "Add to Cart" on a product
-		Then I should be told to sign in
+	# Scenario: logged out
+	# 	Given I click "Add to Cart" on a product
+	# 	Then I should be told to sign in
 
 	# Scenario: logged in
 	# 	Given that I am logged in

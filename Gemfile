@@ -28,6 +28,8 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem 'haml-rails'
+
 group :test, :development do 
 	gem 'rspec-rails'
 	gem 'capybara'
