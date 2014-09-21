@@ -1,12 +1,14 @@
 App = angular.module('Clothing', ['ngRoute', 'templates'])
 
-App.config(['$routeProvider', ($routeProvider) ->
+App.config(['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
 
-  # $routeProvider
-  # .when('/', { templateUrl: '../views/products/index.html'}, controller: 'IndexCtrl')
+  $routeProvider
+  .when('/shopping_cart', { templateUrl: 'shopping_cart/show.html', controller: 'CartCtrl'})
   # .when('/post/:postId', { templateUrl: '../assets/mainPost.html', controller: 'PostCtrl' } )
 
   $routeProvider.otherwise({ templateUrl: 'products/index.html', controller: 'ProductIndexCtrl' } )
+
+  $locationProvider.html5Mode(true);
 
 ])
 

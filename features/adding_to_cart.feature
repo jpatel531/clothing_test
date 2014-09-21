@@ -2,14 +2,16 @@ Feature: As a user
 	I can add a product to my shopping cart
 
 	Background:
-		When I am on the homepage
+		Given there are products
+		And I am on the homepage
 
-	# Scenario: logged out
-	# 	Given I click "Add to Cart" on a product
-	# 	Then I should be told to sign in
+	@javascript
+	Scenario:
+		Then I should speak troth
 
-	# Scenario: logged in
-	# 	Given that I am logged in
-	# 	And I click "Add To Cart" on a product
-	# 	Then the number of cart items should be incremented
-	# 	And I should see that item in my shopping cart
+	@javascript
+	Scenario: adding a product to cart
+		Given I click "Add To Cart" on a product
+		Then the number of cart items should be incremented
+		And when I go onto my cart page
+		Then I should see that item in my shopping cart
