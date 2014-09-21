@@ -1,0 +1,5 @@
+%div{:"ng-repeat" => "product in products"}
+	Name: {{product.name}}
+	Category: {{product.category}}
+	Price: {{product.price | currency:"£"}}
+	Quantity in Stock: {{product.quantity}}
