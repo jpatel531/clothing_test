@@ -30,13 +30,16 @@ angular.module('Clothing')
 
 
 	applyVouchers = ->
+		$scope.validationMessage = ""
 		_.each $scope.vouchers, (voucher) -> 
 			if _.contains(_.pluck($scope.selectedVouchers, "name"), voucher.name) then $scope.shoppingCart.total -= voucher.discount
 
 	$scope.$watch 'selectedVouchers', 
 		(-> 
 			$scope.shoppingCart.total = $scope.shoppingCart.originalTotal
-			if vouchersValid() then applyVouchers()
+			$scope.validationMessage = ""
+			return if $scope.selectedVouchers.length is 0
+			if vouchersValid() then applyVouchers() else ($scope.validationMessage = "You have at least one invalid voucher")
 		), 
 		true
 

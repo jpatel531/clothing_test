@@ -18,6 +18,6 @@ Then(/^the total should not change$/) do
 end
 
 Then(/^I should be alerted that I have selected an invalid voucher$/) do
-	expect(page).to have_content "You are not allowed to apply this voucher"
+	expect(page).to have_content "You have at least one invalid voucher"
 end
 
