@@ -29,6 +29,7 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'angularjs-rails'
 gem 'angular-rails-templates'
+gem 'underscore-rails'
 
 gem 'haml-rails'
 

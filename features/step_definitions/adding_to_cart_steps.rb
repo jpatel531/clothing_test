@@ -21,6 +21,11 @@ Then(/^I should see that item in my shopping cart$/) do
 	expect(page).to have_content "Almond Toe Court Shoes, Patent Black"
 end
 
+Then(/^I should see the total of my shopping cart$/) do
+	expect(page).to have_content '£99.00'
+end
+
+
 # Then(/^I should speak troth$/) do
 # 	expect(true).to be_falsey
 # end

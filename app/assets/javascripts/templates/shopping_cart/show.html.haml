@@ -1,4 +1,11 @@
-{{testing}}
-
 %div{:"ng-repeat" => "item in shoppingCart"}
 	{{item.name}}
+
+Select a voucher
+%select#select_voucher{:"ng-model" => "voucher"}
+	%option{value: 1} £5 off your order
+
+.total
+	Your total is: {{shoppingCart.total | currency:"£" }}
+
+

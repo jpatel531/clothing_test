@@ -15,3 +15,4 @@ Feature: As a user
 		Then the number of cart items should be incremented
 		And when I go onto my cart page
 		Then I should see that item in my shopping cart
+		And I should see the total of my shopping cart
