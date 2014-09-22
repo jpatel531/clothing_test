@@ -16,5 +16,6 @@
 //= require angular
 //= require angular-rails-templates
 //= require angular-route
+//= require checklist-model
 //= require turbolinks
 //= require_tree .

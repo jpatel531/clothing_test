@@ -2,10 +2,11 @@
 	{{item.name}}
 
 
-%form
-	%input#voucher1{type: "checkbox", :"ng-model" => "voucher", :"ng-true-value" => "1", name: "£5 off your order"} £5 off your order
-	%input#voucher2{type: "checkbox", :"ng-model" => "voucher", :"ng-true-value" => "2", name: "£10 off when you spend over £50"}
-	%input#voucher3{type: "checkbox", :"ng-model" => "voucher", :"ng-true-value" => "3", name: "£15 off when you have bought at least one footwear item and spent over £75"}
+
+
+%label{:"ng-repeat" => "voucher in vouchers"}
+	%input{type: "checkbox", :"checklist-model" => "selectedVouchers", :"checklist-value" => "voucher"} {{voucher}} 
+
 
 .total
 	Your total is: {{shoppingCart.total | currency:"£" }}

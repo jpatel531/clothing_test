@@ -1,4 +1,4 @@
-App = angular.module('Clothing', ['ngRoute', 'templates'])
+App = angular.module('Clothing', ['ngRoute', 'templates', 'checklist-model'])
 
 App.config(['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
 

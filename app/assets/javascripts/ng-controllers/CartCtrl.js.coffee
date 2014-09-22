@@ -6,7 +6,20 @@ angular.module('Clothing')
 		$scope.shoppingCart = data
 		$scope.shoppingCart.total = _.inject (_.map $scope.shoppingCart, (item) -> item.price ), (sum, price) -> sum + price
 
-	$scope.$watch 'voucher', ->
-		if $scope.voucher is "1" then $scope.shoppingCart.total -= 5
-		if $scope.voucher is "2" then $scope.shoppingCart.total -= 10
-		if $scope.voucher is "3" then $scope.shoppingCart.total -= 15
+	$scope.selectedVouchers = []
+
+	$scope.vouchers = [
+		"£5 off your order",
+		"£10 off when you spend over £50",
+		"£15 off when you have bought at least one footwear item and spent over £75"
+	]
+
+	$scope.$watch 'selectedVouchers', 
+		(-> 
+			if _.contains($scope.selectedVouchers, "£5 off your order") then $scope.shoppingCart.total -= 5
+			if _.contains($scope.selectedVouchers, "£10 off when you spend over £50") then $scope.shoppingCart.total -= 10
+			if _.contains($scope.selectedVouchers, "£15 off when you have bought at least one footwear item and spent over £75") then $scope.shoppingCart.total -= 15
+		), 
+		true
+
+

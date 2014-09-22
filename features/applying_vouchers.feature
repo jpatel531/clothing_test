@@ -26,6 +26,7 @@ Feature: As a user
 		And I select "£15 off when you have bought at least one footwear item and spent over £75" from the voucher dropdown
 		Then my total should be decreased by £15
 
+	Scenario: user can apply multiple vouchers
 
 	Scenario: applying the wrong voucher
 
