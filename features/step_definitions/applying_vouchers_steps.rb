@@ -11,7 +11,13 @@ Then(/^my total should be decreased by £(\d+)$/) do |arg1|
 	end
 end
 
-# Then(/^I should not be able to click the £(\d+) off when over £(\d+) discount$/) do |arg1, arg2|
-# 	expect(page).not_to have_content '£10 off when you spend over £50'
-# end
+Then(/^the total should not change$/) do
+	within '.total' do
+		expect(page).to have_content "£30.00"
+	end
+end
+
+Then(/^I should be alerted that I have selected an invalid voucher$/) do
+	expect(page).to have_content "You are not allowed to apply this voucher"
+end
 
