@@ -9,17 +9,15 @@ angular.module('Clothing')
 	$scope.selectedVouchers = []
 
 	$scope.vouchers = [
-		"£5 off your order",
-		"£10 off when you spend over £50",
-		"£15 off when you have bought at least one footwear item and spent over £75"
+		{name: "£5 off your order", discount: 5},
+		{name: "£10 off when you spend over £50", discount: 10},
+		{name: "£15 off when you have bought at least one footwear item and spent over £75", discount: 15}
 	]
 
 	$scope.$watch 'selectedVouchers', 
 		(-> 
-			if _.contains($scope.selectedVouchers, "£5 off your order") then $scope.shoppingCart.total -= 5
-			if _.contains($scope.selectedVouchers, "£10 off when you spend over £50") then $scope.shoppingCart.total -= 10
-			if _.contains($scope.selectedVouchers, "£15 off when you have bought at least one footwear item and spent over £75") then $scope.shoppingCart.total -= 15
+			_.each $scope.vouchers, (voucher) -> 
+				if _.contains($scope.selectedVouchers, voucher.name) then $scope.shoppingCart.total -= voucher.discount
 		), 
 		true
-
 
