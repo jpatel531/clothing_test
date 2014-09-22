@@ -9,3 +9,4 @@ angular.module('Clothing')
 	$scope.$watch 'voucher', ->
 		if $scope.voucher is "1" then $scope.shoppingCart.total -= 5
 		if $scope.voucher is "2" then $scope.shoppingCart.total -= 10
+		if $scope.voucher is "3" then $scope.shoppingCart.total -= 15

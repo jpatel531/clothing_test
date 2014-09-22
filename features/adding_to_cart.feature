@@ -11,7 +11,7 @@ Feature: As a user
 
 	@javascript
 	Scenario: adding a product to cart
-		Given I click "Add To Cart" on a product
+		Given I click "Add To Cart" on "Almond Toe Court Shoes, Patent Black"
 		Then the number of cart items should be incremented
 		And when I go onto my cart page
 		Then I should see that item in my shopping cart

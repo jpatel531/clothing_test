@@ -2,10 +2,11 @@ Given(/^I am on the homepage$/) do
 	visit '/'
 end
 
-Given(/^I click "(.*?)" on a product$/) do |arg1|
-	@product = Product.find_by_name "Almond Toe Court Shoes, Patent Black"
+Given(/^I click "(.*?)" on "(.*?)"$/) do |arg1, arg2|
+	@product = Product.find_by_name arg2
 	click_link "#{@product.id}"
 end
+
 
 Then(/^the number of cart items should be incremented$/) do
 	within '.shopping-cart' do 
