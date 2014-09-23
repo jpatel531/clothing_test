@@ -18,7 +18,7 @@ angular.module('Clothing')
 	]
 
 	isEnoughMoneyFor = (voucher) ->
-		voucher.requirements.spend <= $scope.shoppingCart.total		
+		voucher.requirements.spend < $scope.shoppingCart.total		
 
 	isCorrectCategoryFor = (voucher) ->
 		if voucher.requirements.category is null
@@ -27,7 +27,7 @@ angular.module('Clothing')
 			_.any $scope.shoppingCart, (item) -> item.category.indexOf(voucher.requirements.category) > -1
 
 	vouchersValid = ->
-		_.any $scope.selectedVouchers, (voucher) ->
+		_.all $scope.selectedVouchers, (voucher) ->
 			isEnoughMoneyFor(voucher) && isCorrectCategoryFor(voucher)
 
 

@@ -41,5 +41,3 @@ Feature: As a user
 		And I select "£10 off when you spend over £50" from the voucher dropdown
 		Then the total should not change
 		And I should be alerted that I have selected an invalid voucher
-
-	Scenario: applying the voucher twice
