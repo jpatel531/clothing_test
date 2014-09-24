@@ -1,11 +1,10 @@
 angular.module('Clothing')
 
-.controller 'CartCtrl', ($scope, $http, ShoppingCart) ->
+.controller 'CartCtrl', ($scope, $http, ShoppingCart, Vouchers) ->
 
 
 	getVouchers = ->
-		$http.get('/vouchers').success (data) ->
-			$scope.vouchers = data
+		Vouchers.get().then -> $scope.vouchers = Vouchers.list
 
 	$scope.getShoppingCart = ->
 		ShoppingCart.getItems().then -> 
@@ -17,22 +16,7 @@ angular.module('Clothing')
 
 	$scope.selectedVouchers = []
 
-	isEnoughMoneyFor = (voucher) ->
-		voucher.requirements.spend < $scope.shoppingCart.total		
-
-	isCorrectCategoryFor = (voucher) ->
-		unless voucher.requirements.category?
-			return true
-		else 
-			_.any $scope.shoppingCart, (item) -> item.category.indexOf(voucher.requirements.category) > -1
-
-	vouchersValid = ->
-		_.all $scope.selectedVouchers, (voucher) ->
-			isEnoughMoneyFor(voucher) && isCorrectCategoryFor(voucher)
-
-
 	applyVouchers = ->
-		$scope.validationMessage = ""
 		_.each $scope.vouchers, (voucher) -> 
 			if _.contains(_.pluck($scope.selectedVouchers, "name"), voucher.name) then $scope.shoppingCart.total -= voucher.discount
 
@@ -41,7 +25,7 @@ angular.module('Clothing')
 			$scope.shoppingCart.total = $scope.shoppingCart.originalTotal if $scope.shoppingCart?
 			$scope.validationMessage = ""
 			return if $scope.selectedVouchers.length is 0
-			if vouchersValid() then applyVouchers() else ($scope.validationMessage = "You have at least one invalid voucher")
+			if Vouchers.areValid($scope.selectedVouchers, $scope.shoppingCart) then applyVouchers() else ($scope.validationMessage = "You have at least one invalid voucher")
 		), 
 		true
 
