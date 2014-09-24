@@ -6,5 +6,4 @@ script:
   - travis_retry bundle install
   - bin/rake db:create
   - bin/rake db:create RAILS_ENV=test
-  - brew install phantomjs
   - cucumber
