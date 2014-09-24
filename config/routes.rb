@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :products
-
+  resources :vouchers
 
   root to: "main#index"
 

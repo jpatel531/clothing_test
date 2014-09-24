@@ -2,6 +2,9 @@ angular.module('Clothing')
 
 .controller 'CartCtrl', ($scope, $http) ->
 
+	$http.get('/vouchers').success (data) ->
+		$scope.vouchers = data
+
 	$scope.shoppingCart = []
 
 	getUserChoices = ->
@@ -16,12 +19,6 @@ angular.module('Clothing')
 
 	$scope.removeItem = (id) ->
 		$http.delete('/shopping_cart/user_choices/' + id).then getUserChoices()
-
-	$scope.vouchers = [
-		{name: "£5 off your order", discount: 5, requirements: {spend: 0, category: null}},
-		{name: "£10 off when you spend over £50", discount: 10, requirements: {spend: 50, category: null}},
-		{name: "£15 off when you have bought at least one footwear item and spent over £75", discount: 15, requirements: {spend: 75, category: "Footwear"}}
-	]
 
 	isEnoughMoneyFor = (voucher) ->
 		voucher.requirements.spend < $scope.shoppingCart.total		

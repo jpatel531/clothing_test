@@ -12,6 +12,10 @@ describe "CartCtrl", ->
 		httpBackend.verifyNoOutstandingExpectation()
 		httpBackend.verifyNoOutstandingRequest()
 
+	beforeEach ->
+		vouchers = [{"name": "£5 off your order", "discount": 5,"requirements": {"spend": 0, "category": null}},{"name": "£10 off when you spend over £50","discount": 10,"requirements": {"spend": 50,"category": null}},{"name": "£15 off when you have bought at least one footwear item and spent over £75","discount": 15,"requirements": {"spend": 75,"category": "Footwear"}}]
+		httpBackend.when('GET', '/vouchers').respond vouchers
+
 	it "should get a customer's wishlist and assign it to scope", ->
 		data = ["name": "Cotton Shorts, Medium Red"]
 		httpBackend.expect('GET', '/shopping_cart/user_choices').respond data
