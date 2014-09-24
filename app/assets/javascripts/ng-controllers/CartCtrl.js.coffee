@@ -2,23 +2,23 @@ angular.module('Clothing')
 
 .controller 'CartCtrl', ($scope, $http) ->
 
-	$http.get('/vouchers').success (data) ->
-		$scope.vouchers = data
+
+	getVouchers = ->
+		$http.get('/vouchers').success (data) ->
+			$scope.vouchers = data
 
 	$scope.shoppingCart = []
 
-	getUserChoices = ->
+	$scope.getUserChoices = ->
 		$http.get('/shopping_cart/user_choices').success (data) ->
 			$scope.shoppingCart = data
 			$scope.shoppingCart.originalTotal = _.inject (_.map $scope.shoppingCart, (item) -> item.price ), (sum, price) -> sum + price
 			$scope.shoppingCart.total = $scope.shoppingCart.originalTotal
 
-	getUserChoices()
+	getVouchers()
+	$scope.getUserChoices()
 
 	$scope.selectedVouchers = []
-
-	$scope.removeItem = (id) ->
-		$http.delete('/shopping_cart/user_choices/' + id).then getUserChoices()
 
 	isEnoughMoneyFor = (voucher) ->
 		voucher.requirements.spend < $scope.shoppingCart.total		
