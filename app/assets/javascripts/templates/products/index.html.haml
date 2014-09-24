@@ -13,4 +13,7 @@
 	Category: {{product.category}}
 	Price: {{product.price | currency:"£"}}
 	Quantity in Stock: {{product.quantity}}
-	%a{href: "#", id: "{{product.id}}", :"ng-click" => "addToCart(product.id)"} Add To Cart
+	%a{href: "#", id: "{{product.id}}", :"ng-click" => "isInStock(product.quantity) && addToCart(product.id)"} Add To Cart
+
+
+{{stockMessage}}

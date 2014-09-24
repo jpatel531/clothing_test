@@ -1,3 +1,4 @@
+@javascript
 Feature: As a user
 	I can add a product to my shopping cart
 
@@ -5,7 +6,6 @@ Feature: As a user
 		Given there are products
 		And I am on the homepage
 
-	@javascript
 	Scenario: adding a product to cart
 		Given I click "Add To Cart" on "Almond Toe Court Shoes, Patent Black"
 		Then the number of cart items should be incremented
