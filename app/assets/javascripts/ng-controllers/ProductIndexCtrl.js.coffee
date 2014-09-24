@@ -13,7 +13,3 @@ angular.module('Clothing')
 		else
 			$scope.stockMessage = ""
 			true
-
-	$scope.addToCart = (id) ->
-		$scope.shoppingCart.length += 1
-		$http.post '/shopping_cart', {product_id: id}
