@@ -6,10 +6,6 @@ Feature: As a user
 		And I am on the homepage
 
 	@javascript
-	Scenario:
-		Then I should speak troth
-
-	@javascript
 	Scenario: adding a product to cart
 		Given I click "Add To Cart" on "Almond Toe Court Shoes, Patent Black"
 		Then the number of cart items should be incremented

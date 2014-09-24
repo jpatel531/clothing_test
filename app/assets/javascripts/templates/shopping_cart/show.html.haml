@@ -1,16 +1,19 @@
-%div{:"ng-repeat" => "item in shoppingCart"}
-	{{item.name}}
+%div{:"ng-hide" => "shoppingCart"}
+	You have no items in your cart
 
+%div{:"ng-show" => "shoppingCart"}
 
+	%div{:"ng-repeat" => "item in shoppingCart"}
+		{{item.name}}
+		%a{href: "#", id: "{{item.id}}", :"ng-click" => "removeItem(item.id)"} Remove From Cart
 
+	%label{:"ng-repeat" => "voucher in vouchers"}
+		%input{type: "checkbox", :"checklist-model" => "selectedVouchers", :"checklist-value" => "voucher"} {{voucher.name}} 
 
-%label{:"ng-repeat" => "voucher in vouchers"}
-	%input{type: "checkbox", :"checklist-model" => "selectedVouchers", :"checklist-value" => "voucher"} {{voucher.name}} 
+	.validation-message
+		{{validationMessage}}
 
-.validation-message
-	{{validationMessage}}
-
-.total
-	Your total is: {{shoppingCart.total | currency:"£" }}
+	.total
+		Your total is: {{shoppingCart.total | currency:"£" }}
 
 

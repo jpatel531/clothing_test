@@ -4,12 +4,18 @@ angular.module('Clothing')
 
 	$scope.shoppingCart = []
 
-	$http.get('/shopping_cart/user_choices').success (data) ->
-		$scope.shoppingCart = data
-		$scope.shoppingCart.originalTotal = _.inject (_.map $scope.shoppingCart, (item) -> item.price ), (sum, price) -> sum + price
-		$scope.shoppingCart.total = $scope.shoppingCart.originalTotal
+	getUserChoices = ->
+		$http.get('/shopping_cart/user_choices').success (data) ->
+			$scope.shoppingCart = data
+			$scope.shoppingCart.originalTotal = _.inject (_.map $scope.shoppingCart, (item) -> item.price ), (sum, price) -> sum + price
+			$scope.shoppingCart.total = $scope.shoppingCart.originalTotal
+
+	getUserChoices()
 
 	$scope.selectedVouchers = []
+
+	$scope.removeItem = (id) ->
+		$http.delete('/shopping_cart/user_choices/' + id).then getUserChoices()
 
 	$scope.vouchers = [
 		{name: "£5 off your order", discount: 5, requirements: {spend: 0, category: null}},
@@ -21,7 +27,7 @@ angular.module('Clothing')
 		voucher.requirements.spend < $scope.shoppingCart.total		
 
 	isCorrectCategoryFor = (voucher) ->
-		if voucher.requirements.category is null
+		unless voucher.requirements.category?
 			return true
 		else 
 			_.any $scope.shoppingCart, (item) -> item.category.indexOf(voucher.requirements.category) > -1

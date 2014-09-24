@@ -13,14 +13,7 @@ describe "CartCtrl", ->
 		httpBackend.verifyNoOutstandingRequest()
 
 	it "should get a customer's wishlist and assign it to scope", ->
-		data = [{"id": 8,
-		"created_at": "2014-09-21T18:25:54.965Z",
-		"updated_at": "2014-09-21T18:25:54.965Z",
-		"name": "Cotton Shorts, Medium Red",
-		"category": "Women's Casualwear",
-		"price": 30,
-		"quantity": 5}]
-
+		data = ["name": "Cotton Shorts, Medium Red"]
 		httpBackend.expect('GET', '/shopping_cart/user_choices').respond data
 		httpBackend.flush()
 		expect(scope.shoppingCart[0].name).toEqual "Cotton Shorts, Medium Red"
@@ -68,7 +61,6 @@ describe "CartCtrl", ->
 				expect(scope.validationMessage).toEqual ""
 
 			it 'will not allow you to apply the same voucher twice', ->
-
 				scope.$apply -> scope.selectedVouchers = [{name: "£5 off your order", discount: 5, requirements: {spend: 0, category: null}}]
 				scope.$apply -> scope.selectedVouchers = []
 				scope.$apply -> scope.selectedVouchers = [{name: "£5 off your order", discount: 5, requirements: {spend: 0, category: null}}]

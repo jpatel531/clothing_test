@@ -1,5 +1,6 @@
 require 'cucumber/rails'
-
+require 'database_cleaner'
+require 'database_cleaner/cucumber'
 require 'capybara/poltergeist'
 
 Capybara.register_driver :poltergeist do |app|
@@ -10,12 +11,8 @@ Capybara.javascript_driver = :poltergeist
 
 Capybara.raise_server_errors = false
 
-Warden.test_mode! 
-World Warden::Test::Helpers
-After { Warden.test_reset! }
-
-
 ActionController::Base.allow_rescue = false
+
 
 begin
   DatabaseCleaner.strategy = :transaction
