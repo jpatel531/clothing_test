@@ -7,6 +7,8 @@ Capybara.register_driver :poltergeist do |app|
     Capybara::Poltergeist::Driver.new(app, {debug: false, js_errors: false, timeout: 15})
 end
 
+Capybara.default_wait_time = 15
+
 Capybara.javascript_driver = :poltergeist
 
 Capybara.raise_server_errors = false
