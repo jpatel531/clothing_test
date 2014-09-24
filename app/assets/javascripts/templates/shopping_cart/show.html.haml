@@ -4,7 +4,7 @@
 %div{:"ng-show" => "shoppingCart"}
 
 	%div{:"ng-repeat" => "item in shoppingCart"}
-		{{item.name}}
+		%p {{item.name}}
 		%a{href: "#", id: "{{item.id}}", :"remove-item" => "item.id"} Remove From Cart
 
 	%label{:"ng-repeat" => "voucher in vouchers"}

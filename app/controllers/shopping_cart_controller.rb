@@ -15,7 +15,7 @@ class ShoppingCartController < ApplicationController
 
 	def delete_choice
 		@product = Product.find params[:product_id]
-		session[:cart].delete @product
+		session[:cart].delete_at session[:cart].index(@product)
 		render json: {success: 200}
 	end
 
