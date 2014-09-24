@@ -5,11 +5,3 @@ angular.module('Clothing')
 	$http.get('/products').success (data) -> $scope.products = data
 
 	$http.get('/shopping_cart/user_choices').success (data) -> $scope.shoppingCart = data
-
-	$scope.isInStock = (quantity) ->
-		if quantity is 0
-			$scope.stockMessage = "You cannot add a product that is out of stock to your cart"
-			false
-		else
-			$scope.stockMessage = ""
-			true

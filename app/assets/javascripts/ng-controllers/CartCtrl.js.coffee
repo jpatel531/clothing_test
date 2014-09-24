@@ -1,22 +1,19 @@
 angular.module('Clothing')
 
-.controller 'CartCtrl', ($scope, $http) ->
+.controller 'CartCtrl', ($scope, $http, ShoppingCart) ->
 
 
 	getVouchers = ->
 		$http.get('/vouchers').success (data) ->
 			$scope.vouchers = data
 
-	$scope.shoppingCart = []
+	$scope.getShoppingCart = ->
+		ShoppingCart.getItems().then -> 
+			$scope.shoppingCart = ShoppingCart.items
+			$scope.shoppingCart.originalTotal = $scope.shoppingCart.total = ShoppingCart.originalTotal
 
-	$scope.getUserChoices = ->
-		$http.get('/shopping_cart/user_choices').success (data) ->
-			$scope.shoppingCart = data
-			$scope.shoppingCart.originalTotal = _.inject (_.map $scope.shoppingCart, (item) -> item.price ), (sum, price) -> sum + price
-			$scope.shoppingCart.total = $scope.shoppingCart.originalTotal
-
+	$scope.getShoppingCart()
 	getVouchers()
-	$scope.getUserChoices()
 
 	$scope.selectedVouchers = []
 
@@ -41,7 +38,7 @@ angular.module('Clothing')
 
 	$scope.$watch 'selectedVouchers', 
 		(-> 
-			$scope.shoppingCart.total = $scope.shoppingCart.originalTotal
+			$scope.shoppingCart.total = $scope.shoppingCart.originalTotal if $scope.shoppingCart?
 			$scope.validationMessage = ""
 			return if $scope.selectedVouchers.length is 0
 			if vouchersValid() then applyVouchers() else ($scope.validationMessage = "You have at least one invalid voucher")
