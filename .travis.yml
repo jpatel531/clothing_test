@@ -4,4 +4,6 @@ rvm:
 install: gem install bundler
 script:
   - bundle install
+  - bin/rake db:create
+  - bin/rake db:create RAILS_ENV=test
   - cucumber
