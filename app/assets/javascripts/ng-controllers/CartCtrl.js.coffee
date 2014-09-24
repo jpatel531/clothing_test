@@ -1,7 +1,4 @@
-angular.module('Clothing')
-
-.controller 'CartCtrl', ($scope, $http, ShoppingCart, Vouchers) ->
-
+angular.module('Clothing').controller 'CartCtrl', ($scope, $http, ShoppingCart, Vouchers) ->
 
 	getVouchers = ->
 		Vouchers.get().then -> $scope.vouchers = Vouchers.list
@@ -11,8 +8,7 @@ angular.module('Clothing')
 			$scope.shoppingCart = ShoppingCart.items
 			$scope.shoppingCart.originalTotal = $scope.shoppingCart.total = ShoppingCart.originalTotal
 
-	$scope.getShoppingCart()
-	getVouchers()
+	$scope.getShoppingCart() and getVouchers()
 
 	$scope.selectedVouchers = []
 
@@ -28,4 +24,3 @@ angular.module('Clothing')
 			if Vouchers.areValid($scope.selectedVouchers, $scope.shoppingCart) then applyVouchers() else ($scope.validationMessage = "You have at least one invalid voucher")
 		), 
 		true
-

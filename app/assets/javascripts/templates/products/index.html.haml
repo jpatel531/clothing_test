@@ -1,19 +1,12 @@
 .shopping-cart
 	You have ordered {{shoppingCart.length}} items
 
-
-
-
-
-
-
-
 %div{:"ng-repeat" => "product in products"}
 	Name: {{product.name}}
 	Category: {{product.category}}
 	Price: {{product.price | currency:"£"}}
 	Quantity in Stock: {{product.quantity}}
-	%a{href: "#", id: "{{product.id}}", :"add-item" => "{{product.id}}", quantity: "{{product.quantity}}", model: "$parent" } Add To Cart
+	%a{href: "#", id: "{{product.id}}", :"add-item" => "{{product.id}}", quantity: "{{product.quantity}}"} Add To Cart
 
 
 {{stockMessage}}

@@ -1,7 +1,5 @@
-angular.module('Clothing')
-
-.controller 'ProductIndexCtrl', ($scope, $http) ->
+angular.module('Clothing').controller 'ProductIndexCtrl', ($scope, $http, ShoppingCart) ->
 
 	$http.get('/products').success (data) -> $scope.products = data
 
-	$http.get('/shopping_cart/user_choices').success (data) -> $scope.shoppingCart = data
+	ShoppingCart.getItems().then -> $scope.shoppingCart = ShoppingCart.items
