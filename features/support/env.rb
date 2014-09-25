@@ -1,3 +1,7 @@
+ENV['CODECLIMATE_REPO_TOKEN']='c12da6ab2d5645031f5d5cbaa9a73a31b01ba2c48846d57764778d7268fefa85'
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
+
 require 'cucumber/rails'
 require 'database_cleaner'
 require 'database_cleaner/cucumber'
