@@ -4,7 +4,7 @@ require 'database_cleaner/cucumber'
 require 'capybara/poltergeist'
 
 Capybara.register_driver :poltergeist do |app|
-    Capybara::Poltergeist::Driver.new(app, {debug: false, js_errors: false, timeout: 120})
+    Capybara::Poltergeist::Driver.new(app, {debug: false, js_errors: false, timeout: 600})
 end
 
 # Capybara.default_wait_time = 60
