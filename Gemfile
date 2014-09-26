@@ -42,6 +42,7 @@ group :test, :development do
   gem "factory_girl_rails"
   gem "launchy"
   gem "codeclimate-test-reporter", require: nil
+  gem "byebug"
 end
 
 # Use ActiveModel has_secure_password

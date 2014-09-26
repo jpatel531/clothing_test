@@ -6,22 +6,32 @@ require 'cucumber/rails'
 require 'database_cleaner'
 require 'database_cleaner/cucumber'
 require 'capybara/poltergeist'
+require 'selenium-webdriver'
+require 'byebug'
+
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+end
 
 Capybara.register_driver :poltergeist do |app|
     Capybara::Poltergeist::Driver.new(app, {debug: false, js_errors: false, timeout: 600})
 end
 
-# Capybara.default_wait_time = 60
-
 Capybara.javascript_driver = :poltergeist
+
+
+Before do 
+	create :product1 and create :product2 and create :product3
+	create :voucher1 and create :voucher2 and create :voucher3
+	visit '/'
+end
 
 Capybara.raise_server_errors = false
 
 ActionController::Base.allow_rescue = false
 
-
 begin
-  DatabaseCleaner.strategy = :transaction
+  DatabaseCleaner.strategy = :truncation
 rescue NameError
   raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
 end
