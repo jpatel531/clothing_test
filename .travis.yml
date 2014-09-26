@@ -10,5 +10,5 @@ script:
   - cucumber
   - bin/rails s -d
   - npm install
-  - npm -g install karma
+  - npm -g install karma-cli
   - karma start spec/javascripts/karma.conf.js
