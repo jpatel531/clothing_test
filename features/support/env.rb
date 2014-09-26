@@ -23,7 +23,6 @@ Capybara.javascript_driver = :poltergeist
 Before do 
 	create :product1 and create :product2 and create :product3
 	create :voucher1 and create :voucher2 and create :voucher3
-	visit '/'
 end
 
 Capybara.raise_server_errors = false

@@ -18,7 +18,7 @@ Then(/^the number of cart items should be incremented$/) do
 	end
 end
 
-Then(/^when I go onto my cart page$/) do
+Then(/^I go onto my cart page$/) do
 	visit '/shopping_cart'
 end
 
