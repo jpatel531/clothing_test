@@ -69,16 +69,3 @@ describe "CartCtrl", ->
 				scope.$apply -> scope.selectedVouchers = []
 				scope.$apply -> scope.selectedVouchers = [{name: "£5 off your order", discount: 5, requirements: {spend: 0, category: null}}]
 				expect(scope.shoppingCart.total).toEqual 75
-
-
-
-
-
-
-
-
-
-
-
-
-
