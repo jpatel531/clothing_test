@@ -58,15 +58,24 @@ label.vouchers {
 	display: block;
 }
 
-span.remove-item {
+span.remove-item, span.remove-item:hover {
 	position: absolute;
 	top: 0;
 	right: 0;
 	color: red;
 	font-size: 20px;
+	opacity: 0.4;
+}
+
+span.remove-item:hover {
+	opacity: 1
 }
 
 p.remove-text {
 	font-size: 0.01px;
 	text-indent: -9999999px;
+}
+
+span.badge {
+	vertical-align: 7px;
 }

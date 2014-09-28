@@ -13,11 +13,11 @@
 					%img{:"ng-src" => "{{product.image}}"}
 				.post-info
 					.row.text-center
-						{{product.category}}
+						%h5 {{product.category}}
 					.row.text-center
-						{{product.price | currency:"£"}}
+						%h5 {{product.price | currency:"£"}}
 					.row.text-center
-						{{product.quantity}} in stock
+						%h5 {{product.quantity}} in stock
 					.row.text-center
 						%a{href: "#", id: "{{product.id}}", :"add-item" => "{{product.id}}", quantity: "{{product.quantity}}"} Add To Cart
 

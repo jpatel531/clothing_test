@@ -2,7 +2,7 @@
 
 .container.products-list
 
-	%div{:"ng-hide" => "shoppingCart"}
+	%div.alert.alert-warning{:"ng-hide" => "shoppingCart"}
 		You have no items in your cart
 
 	%div{:"ng-show" => "shoppingCart"}
@@ -16,8 +16,8 @@
 						%img.product.media-object{:alt => "...", :src => "{{item.image}}"}/
 					.media-body
 						%h4.media-heading {{item.name}}
-						%h6 {{item.price | currency:"£"}}
-						%h6 {{item.quantity}} in stock
+						%h5 {{item.price | currency:"£"}}
+						%p {{item.quantity}} in stock
 
 
 
@@ -25,7 +25,8 @@
 
 		.checkbox
 			%label.vouchers{:"ng-repeat" => "voucher in vouchers"}
-				%input{type: "checkbox", :"checklist-model" => "selectedVouchers", :"checklist-value" => "voucher"} {{voucher.name}} 
+				%input{type: "checkbox", :"checklist-model" => "selectedVouchers", :"checklist-value" => "voucher"} 
+					%h5 {{voucher.name}} 
 
 		.validation-message
 			.alert.alert-warning{role: "alert", :"ng-show" => "validationMessage"}
