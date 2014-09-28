@@ -3,19 +3,18 @@ class UserChoicesController < ApplicationController
 	def index
 		session[:number] ||= 0
 		session[:cart] ||= []
-		render json: session[:cart].to_json
+		@products = session[:cart].map {|id| Product.find id}
+		render json: @products.to_json
 	end
 
 	def create
-		session[:number] += 1
-		@product = Product.find params[:product_id]
-		session[:cart] << @product
+		session[:cart] << params[:product_id]
 		render json: {success: 200}
 	end
 
 	def destroy
-		@product = Product.find params[:id]
-		session[:cart].delete_at session[:cart].index(@product)
+		id = params[:id]
+		session[:cart].delete id
 		render json: {success: 200}
 	end
 

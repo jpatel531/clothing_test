@@ -15,4 +15,58 @@
  */
 
 @import "bootstrap-sprockets";
-@import "bootstrap"
+@import "bootstrap";
+
+.products-list {
+	margin-top: 75px;
+}
+
+.image img, img.product {
+	width: 150px;
+	height: 150px;
+	margin: 0 auto;
+	display: block;
+}
+
+.out-of-stock {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 900000
+}
+
+.out-of-stock.ng-hide {
+  opacity:0;
+}
+
+.panel.cart-item {
+	float: none;
+	margin: 0 auto;
+	margin-bottom: 15px;
+}
+
+.shopping-cart {
+	font-size: 30px;
+}
+
+ul.nav-options {
+	height: 100%;
+	line-height: 50px;
+}
+
+label.vouchers {
+	display: block;
+}
+
+span.remove-item {
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: red;
+	font-size: 20px;
+}
+
+p.remove-text {
+	font-size: 0.01px;
+	text-indent: -9999999px;
+}

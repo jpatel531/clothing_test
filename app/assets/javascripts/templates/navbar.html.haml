@@ -1,0 +1,9 @@
+%nav.navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
+  .container
+    %a.navbar-brand{href: "/"} E-Commerce Test
+    %ul.nav.navbar-nav.navbar-right.nav-options
+      %li
+        .shopping-cart
+          %a{:href => "/shopping_cart"}
+            %span.glyphicon.glyphicon-shopping-cart
+          %span.badge {{shoppingCart.length}}

@@ -1,4 +1,4 @@
-angular.module('Clothing').directive "addItem", ($http) ->
+angular.module('Clothing').directive "addItem", ($http, $timeout) ->
 
 	return {
 		link: ($scope, el, attrs) ->
@@ -8,5 +8,7 @@ angular.module('Clothing').directive "addItem", ($http) ->
 					$scope.shoppingCart.length += 1
 					$http.post '/shopping_cart/user_choices', {product_id: attrs.id}
 				else
-					$scope.$apply -> $scope.$parent.stockMessage = "You cannot add a product that is out of stock to your cart"
+					$scope.$apply -> 
+						$scope.$parent.stockMessage = "You cannot add a product that is out of stock to your cart"
+						$timeout((-> $scope.$parent.stockMessage = null), 5000)
 	}

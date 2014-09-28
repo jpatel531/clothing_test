@@ -5,7 +5,7 @@ Then(/^I should be told that I cannot add this product$/) do
 end
 
 Then(/^the number of products in my cart should not change$/) do
-	within '.shopping-cart' do 
+	within 'span.badge' do 
 		expect(page).to have_content 0
 	end
 end

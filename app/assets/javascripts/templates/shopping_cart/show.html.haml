@@ -1,21 +1,38 @@
-.container
+%cart-nav
+
+.container.products-list
 
 	%div{:"ng-hide" => "shoppingCart"}
 		You have no items in your cart
 
 	%div{:"ng-show" => "shoppingCart"}
 
-		%div{:"ng-repeat" => "item in shoppingCart"}
-			%p {{item.name}}
-			%a{href: "#", id: "{{item.id}}", :"remove-item" => "item.id"} Remove From Cart
+		%div.row{:"ng-repeat" => "item in shoppingCart"}
+			.panel.panel-default.col-md-6.cart-item
+				%span.glyphicon.glyphicon-remove.remove-item{href: "#", id: "{{item.id}}", :"remove-item" => "item.id"}
+					%p.remove-text Remove From Cart
+				.media
+					%a.pull-left{:href => "#"}
+						%img.product.media-object{:alt => "...", :src => "{{item.image}}"}/
+					.media-body
+						%h4.media-heading {{item.name}}
+						%h6 {{item.price | currency:"£"}}
+						%h6 {{item.quantity}} in stock
 
-		%label{:"ng-repeat" => "voucher in vouchers"}
-			%input{type: "checkbox", :"checklist-model" => "selectedVouchers", :"checklist-value" => "voucher"} {{voucher.name}} 
+
+
+
+
+		.checkbox
+			%label.vouchers{:"ng-repeat" => "voucher in vouchers"}
+				%input{type: "checkbox", :"checklist-model" => "selectedVouchers", :"checklist-value" => "voucher"} {{voucher.name}} 
 
 		.validation-message
-			{{validationMessage}}
+			.alert.alert-warning{role: "alert", :"ng-show" => "validationMessage"}
+				{{validationMessage}}
 
 		.total
-			Your total is: {{shoppingCart.total | currency:"£" }}
+			.alert.alert-success{role: "alert"}
+				Your total is: {{shoppingCart.total | currency:"£" }}
 
 
