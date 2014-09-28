@@ -47,6 +47,10 @@ This test is an AngularJS on Rails application. The task of Rails is both to sto
 
 `app/controllers/user_choices_controller.rb`: The `UserChoicesController` has the actions `#index`, `#create`, and `#destroy`. The `#index` action conditionally assigns an empty cart, which will be an array of IDs stored in a session variable. The `#create` action, when the user posts his/her choice from the front-end, pushes the desired product's ID into the cart array. The `#destroy` action takes the received ID parameter, and deletes it from the session cart. I have chosen to store user choices in a session variable for two reasons: firstly, the specification did not mention a user login; secondly, real e-commerce websites tend to rely on sessions to record choices, before the user can sign in.
 
+####Seeds
+
+`db/seeds.rb`: This file contains the specified information about the types of products and vouchers. Upon running `bin/rake db:seed`, this populates the database with those items.
+
 ####Tests
 
 `features/*`: These tests, written in Cucumber and Capybara with Selenium,imitate the user stories specified above. There are more tests for `applying_vouchers.feature` than any other specification, given the different variations of what the user can see based on his input. The reason I have chosen to include Karma tests as well for this feature is that I thought it was important to test the more complicated logic going on in the relevant Angular controllers and services.
@@ -83,11 +87,41 @@ This test is an AngularJS on Rails application. The task of Rails is both to sto
 
 ####Tests
 
+`spec/javascripts/controller_specs/cart_spec.coffee`: This Karma spec tests the more complicated logic involved in the shopping cart's validations, dynamic updating of sums, and when alert messages are shown to the user. I use $httpBackend to mock the data received from the server
+
 ##How to run the app
+
+```
+git clone https://github.com/jpatel531/clothing_test.git
+cd clothing_test
+bundle
+bin/rake db:create
+bin/rake db:migrate
+bin/rake db:seed
+bin/rails s
+open http://localhost:3000
+```
 
 ##How to run tests
 
+###Cucumber Integration Tests
 
+This requires PhantomJS installed on your computer.
+
+```
+bin/rake db:create RAILS_ENV=test
+bin/rake db:migrate RAILS_ENV=test
+cucumber
+```
+
+###Karma Unit Tests
+
+This requires Karma CLI, and the Rails server to be running.
+
+```
+npm install
+karma start spec/javascripts/karma.conf.js
+```
 
 
 
