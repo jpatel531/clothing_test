@@ -27,12 +27,14 @@ The list of products and vouchers were supplied beforehand.
 * Ruby on Rails
 * AngularJS
 * Cucumber, Capybara, and Poltergeist for integration tests.
-* Karma for unit-testing Angular controllers.
+* Karma for Angular unit tests.
 * Factory Girl for fixtures.
 * HAML
 * CoffeeScript
 * Bootstrap
 * jBuilder
+* Travis CI
+* CodeClimate
 
 ##Code Layout
 
@@ -40,9 +42,19 @@ This test is an AngularJS on Rails application. The task of Rails is both to ren
 
 ###Rails Backend
 
+####Controllers
+
 ####Tests
 
 ###Angular Frontend
+
+####Routes
+
+####Controllers
+
+####Services
+
+####Directives
 
 ####Tests
 
