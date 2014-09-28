@@ -32,7 +32,6 @@ The list of products and vouchers were supplied beforehand.
 * HAML
 * CoffeeScript
 * Bootstrap
-* jBuilder
 * Travis CI
 * CodeClimate
 
@@ -43,6 +42,9 @@ This test is an AngularJS on Rails application. The task of Rails is both to sto
 ###Rails Backend
 
 ####Controllers
+
+`app/controllers/products_controller.rb`: The `ProductsController` simply has the action `#index`, which renders all the instances of `Product` as JSON.
+
 
 ####Tests
 
