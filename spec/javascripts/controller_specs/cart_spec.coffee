@@ -36,7 +36,7 @@ describe "CartCtrl", ->
 				data = [{"name": "Pants", price: 50, category: "Women's Casualwear"}]
 				httpBackend.expect('GET', '/shopping_cart/user_choices').respond data
 				httpBackend.flush()
-				scope.$apply -> scope.selectedVouchers = [{name: "£10 off when you spend over £50", discount: 10, requirements: {spend: 50, category: null}}]
+				scope.$apply -> scope.selectedVouchers = [{name: "£10 off when you spend over £50", discount: 10, spend_requirements: 50, category_requirements: null}]
 				expect(scope.validationMessage).toEqual "You have at least one invalid voucher"
 				expect(scope.shoppingCart.total).toEqual 50
 
@@ -44,7 +44,7 @@ describe "CartCtrl", ->
 				data = [{"name": "Pants", price: 80, category: "Women's Casualwear"}]
 				httpBackend.expect('GET', '/shopping_cart/user_choices').respond data
 				httpBackend.flush()
-				scope.$apply -> scope.selectedVouchers = [{name: "£15 off when you have bought at least one footwear item and spent over £75", discount: 15, requirements: {spend: 75, category: "Footwear"}}]
+				scope.$apply -> scope.selectedVouchers = [{name: "£15 off when you have bought at least one footwear item and spent over £75", discount: 15, spend_requirements: 75, category_requirements: 'Footwear'}]
 				expect(scope.validationMessage).toEqual "You have at least one invalid voucher"
 				expect(scope.shoppingCart.total).toEqual 80
 
@@ -55,17 +55,17 @@ describe "CartCtrl", ->
 				httpBackend.flush()
 
 			it 'alerts you if at least one voucher is invalid', ->
-				scope.$apply -> scope.selectedVouchers = [{name: "£10 off when you spend over £50", discount: 10, requirements: {spend: 50, category: null}}, {name: "£15 off when you have bought at least one footwear item and spent over £75", discount: 15, requirements: {spend: 75, category: "Footwear"}}]
+				scope.$apply -> scope.selectedVouchers = [{name: "£10 off when you spend over £50", discount: 10, spend_requirements: 50, category_requirements: null}, {name: "£15 off when you have bought at least one footwear item and spent over £75", discount: 15, spend_requirements: 75, category_requirements: "Footwear"}]
 				expect(scope.validationMessage).toEqual "You have at least one invalid voucher"
 
 			it 'no longer shows the alert if you unselect the inappropriate voucher', ->
-				scope.$apply -> scope.selectedVouchers = [{name: "£10 off when you spend over £50", discount: 10, requirements: {spend: 50, category: null}}, {name: "£15 off when you have bought at least one footwear item and spent over £75", discount: 15, requirements: {spend: 75, category: "Footwear"}}]
+				scope.$apply -> scope.selectedVouchers = [{name: "£10 off when you spend over £50", discount: 10, spend_requirements: 50, category_requirements: null}, {name: "£15 off when you have bought at least one footwear item and spent over £75", discount: 15, spend_requirements: 75, category_requirements: "Footwear"}]
 				expect(scope.validationMessage).toEqual "You have at least one invalid voucher"
-				scope.$apply -> scope.selectedVouchers = [{name: "£10 off when you spend over £50", discount: 10, requirements: {spend: 50, category: null}}]
+				scope.$apply -> scope.selectedVouchers = [{name: "£10 off when you spend over £50", discount: 10, spend_requirements: 50, category_requirements: null}]
 				expect(scope.validationMessage).toEqual ""
 
 			it 'will not allow you to apply the same voucher twice', ->
-				scope.$apply -> scope.selectedVouchers = [{name: "£5 off your order", discount: 5, requirements: {spend: 0, category: null}}]
+				scope.$apply -> scope.selectedVouchers = [{name: "£5 off your order", discount: 5, spend_requirements: 0, category_requirements: null}]
 				scope.$apply -> scope.selectedVouchers = []
-				scope.$apply -> scope.selectedVouchers = [{name: "£5 off your order", discount: 5, requirements: {spend: 0, category: null}}]
+				scope.$apply -> scope.selectedVouchers = [{name: "£5 off your order", discount: 5, spend_requirements: 0, category_requirements: null}]
 				expect(scope.shoppingCart.total).toEqual 75
