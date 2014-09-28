@@ -4,6 +4,6 @@
 
 An e-commerce test.
 
-![Image1](https://raw.githubusercontent.com/jpatel531/clothing_test/master/screenshot/1.jpg)
+![Image1](https://raw.githubusercontent.com/jpatel531/clothing_test/master/screenshots/1.jpg)
 
-![Image2](https://raw.githubusercontent.com/jpatel531/clothing_test/master/screenshot/2.jpg)
+![Image2](https://raw.githubusercontent.com/jpatel531/clothing_test/master/screenshots/2.jpg)
