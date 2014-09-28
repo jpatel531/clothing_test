@@ -38,7 +38,7 @@ The list of products and vouchers were supplied beforehand.
 
 ##Code Layout
 
-This test is an AngularJS on Rails application. The task of Rails is both to render JSON to the Angular front-end, while Angular is in charge of routing, templating, rendering products and vouchers, and dynamically validating vouchers and updating the shopping cart total accordingly. I will as follows, go through the relevant files and provide a high-level overview of the code.
+This test is an AngularJS on Rails application. The task of Rails is both to store the user's choices in a session and to render JSON to the Angular front-end. Angular is in charge of routing, templating, rendering products and vouchers, and dynamically validating vouchers and updating the shopping cart total accordingly. I will as follows, go through the relevant files and provide a high-level overview of the code.
 
 ###Rails Backend
 
