@@ -43,7 +43,9 @@ This test is an AngularJS on Rails application. The task of Rails is both to sto
 
 ####Controllers
 
-`app/controllers/products_controller.rb`: The `ProductsController` simply has the action `#index`, which renders all the instances of `Product` as JSON.
+`app/controllers/products_controller.rb`: The `ProductsController` simply has the action `#index`, which renders all the instances of `Product` as JSON. The `products` table has the columns specified by the tester: name, category, price, stock quantity.
+
+`app/controllers/user_choices_controller.rb`: The `UserChoicesController` has the actions `#index`, `#create`, and `#destroy`. The `#index` action conditionally assigns an empty cart, which will be an array of IDs stored in a session variable. The `#create` action, when the user posts his/her choice from the front-end, pushes the desired product's ID into the cart array. The `#destroy` action takes the received ID parameter, and deletes it from the session cart. I have chosen to store user choices in a session variable for two reasons: firstly, the specification did not specify a user login; secondly, real e-commerce websites tend to rely on sessions to record choices, before the user can sign in.
 
 
 ####Tests

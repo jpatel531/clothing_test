@@ -1,7 +1,6 @@
 class UserChoicesController < ApplicationController
 
 	def index
-		session[:number] ||= 0
 		session[:cart] ||= []
 		@products = session[:cart].map {|id| Product.find id}
 		render json: @products.to_json
