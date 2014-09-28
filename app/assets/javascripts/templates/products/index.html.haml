@@ -1,12 +1,23 @@
 .shopping-cart
 	You have ordered {{shoppingCart.length}} items
 
-%div{:"ng-repeat" => "product in products"}
-	Name: {{product.name}}
-	Category: {{product.category}}
-	Price: {{product.price | currency:"£"}}
-	Quantity in Stock: {{product.quantity}}
-	%a{href: "#", id: "{{product.id}}", :"add-item" => "{{product.id}}", quantity: "{{product.quantity}}"} Add To Cart
+.container
 
+	{{stockMessage}}
+	.col-sm-4{:"ng-repeat" => "product in products"}
+		.panel.panel-default
+			.panel-heading
+				%h3.panel-title {{product.name}}
+			.panel-body
+				.image
+					{{product.image}}
+				.post-info
+					.row.text-center
+						{{product.category}}
+					.row.text-center
+						{{product.price | currency:"£"}}
+					.row.text-center
+						{{product.quantity}} in stock
+					.row.text-center
+						%a{href: "#", id: "{{product.id}}", :"add-item" => "{{product.id}}", quantity: "{{product.quantity}}"} Add To Cart
 
-{{stockMessage}}
