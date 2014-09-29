@@ -15,7 +15,8 @@ module Api
 
 		def destroy
 			id = params[:id]
-			session[:cart].delete id
+			session[:cart].delete_at session[:cart].index(id)
+			puts session[:cart]
 			render json: {success: 200}
 		end
 
