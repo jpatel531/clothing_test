@@ -41,6 +41,10 @@ This test is an AngularJS on Rails application. The task of Rails is both to sto
 
 ###Rails Backend
 
+####Routes
+
+`app/config/routes.rb`: This file makes sure that all URLs beginning with '/api/' are handled by Rails, while all others are handled by the Angular router.
+
 ####Controllers
 
 `app/controllers/products_controller.rb`: The `ProductsController` simply has the action `#index`, which renders all the instances of `Product` as JSON. The `products` table has the columns specified by the tester: name, category, price, stock quantity.

@@ -6,7 +6,7 @@ angular.module('Clothing').directive "addItem", ($http, $timeout) ->
 				unless parseInt(attrs.quantity) is 0 
 					$scope.$apply -> $scope.$parent.stockMessage = ""
 					$scope.shoppingCart.length += 1
-					$http.post '/shopping_cart/user_choices', {product_id: attrs.id}
+					$http.post 'api/shopping_cart/user_choices', {product_id: attrs.id}
 				else
 					$scope.$apply -> 
 						$scope.$parent.stockMessage = "You cannot add a product that is out of stock to your cart"
