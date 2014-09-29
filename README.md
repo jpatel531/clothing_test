@@ -41,7 +41,6 @@ This test is an AngularJS on Rails application. The task of Rails is both to sto
 
 ###Rails Backend
 
-
 ####Routes
 
 `app/config/routes.rb`: This file makes sure that all URLs beginning with '/api/' are handled by Rails, while all others are handled by the Angular router.
