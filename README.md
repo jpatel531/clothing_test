@@ -8,6 +8,10 @@ The task is to display all the products, as well as a shopping cart to which the
 
 The list of products and vouchers were supplied beforehand.
 
+##Heroku
+
+[Here is a link to the application on Heroku.](http://infinite-brushlands-8298.herokuapp.com/)
+
 ![Image1](https://raw.githubusercontent.com/jpatel531/clothing_test/master/screenshots/1.jpg)
 
 ![Image2](https://raw.githubusercontent.com/jpatel531/clothing_test/master/screenshots/2.jpg)
