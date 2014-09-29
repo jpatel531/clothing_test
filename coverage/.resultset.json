@@ -175,6 +175,9 @@
         1,
         1,
         1,
+        1,
+        null,
+        null,
         null,
         null,
         null
@@ -222,7 +225,9 @@
         1,
         null
       ],
-      "/Users/jamiepatel/Desktop/Projects/clothing_test/app/controllers/products_controller.rb": [
+      "/Users/jamiepatel/Desktop/Projects/clothing_test/app/controllers/api/products_controller.rb": [
+        1,
+        null,
         1,
         null,
         1,
@@ -230,42 +235,50 @@
         10,
         null,
         null,
-        null
-      ],
-      "/Users/jamiepatel/Desktop/Projects/clothing_test/app/controllers/user_choices_controller.rb": [
-        1,
-        null,
-        1,
-        19,
-        19,
-        19,
-        19,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
         null,
         null,
         null
       ],
-      "/Users/jamiepatel/Desktop/Projects/clothing_test/app/controllers/vouchers_controller.rb": [
+      "/Users/jamiepatel/Desktop/Projects/clothing_test/app/controllers/api/user_choices_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        19,
+        19,
+        19,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/jamiepatel/Desktop/Projects/clothing_test/app/controllers/api/vouchers_controller.rb": [
+        1,
+        null,
         1,
         null,
         1,
         9,
         9,
+        null,
+        null,
         null,
         null,
         null
       ]
     },
-    "timestamp": 1411942680
+    "timestamp": 1411981873
   }
 }

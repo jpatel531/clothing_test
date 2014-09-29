@@ -3,7 +3,7 @@ angular.module('Clothing').factory 'Vouchers', ($http) ->
 	Vouchers = {}
 
 	Vouchers.get = ->
-		$http.get('/vouchers').success (data) ->
+		$http.get('/api/vouchers').success (data) ->
 			Vouchers.list = data
 
 	Vouchers.isEnoughMoneyFor = (voucher, total) ->
