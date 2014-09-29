@@ -87,7 +87,7 @@ This test is an AngularJS on Rails application. The task of Rails is both to sto
 
 ####Tests
 
-`spec/javascripts/controller_specs/cart_spec.coffee`: This Karma spec tests the more complicated logic involved in the shopping cart's validations, dynamic updating of sums, and when alert messages are shown to the user. I use $httpBackend to mock the data received from the server
+`spec/javascripts/controller_specs/cart_spec.coffee`: This Karma spec tests the more complicated logic involved in the shopping cart's validations, dynamic updating of sums, and when alert messages are shown to the user. I use $httpBackend to mock the data received from the server.
 
 ##How to run the app
 
