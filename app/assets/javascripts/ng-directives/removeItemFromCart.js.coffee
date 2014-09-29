@@ -1,4 +1,4 @@
-angular.module('Clothing').directive "removeItem", ($http, ShoppingCart) ->
+angular.module('Clothing').directive "removeItem", ['$http', 'ShoppingCart', ($http, ShoppingCart) ->
 
 	return {
 		link: ($scope, el, attrs) ->
@@ -6,5 +6,4 @@ angular.module('Clothing').directive "removeItem", ($http, ShoppingCart) ->
 				$http.delete('api/shopping_cart/user_choices/' + attrs.id)
 				.then -> $scope.getShoppingCart()
 	}
-
-
+]

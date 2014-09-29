@@ -1,4 +1,4 @@
-angular.module('Clothing').factory 'Vouchers', ($http) ->
+angular.module('Clothing').factory 'Vouchers', ['$http', ($http) ->
 
 	Vouchers = {}
 
@@ -20,3 +20,5 @@ angular.module('Clothing').factory 'Vouchers', ($http) ->
 			Vouchers.isEnoughMoneyFor(voucher, shoppingCart.total) && Vouchers.isCorrectCategoryFor(voucher, shoppingCart)
 
 	return Vouchers
+
+]

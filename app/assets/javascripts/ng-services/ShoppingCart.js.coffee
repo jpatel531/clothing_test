@@ -1,4 +1,4 @@
-angular.module('Clothing').factory 'ShoppingCart', ($http) ->
+angular.module('Clothing').factory 'ShoppingCart', ['$http', ($http) ->
 
 	ShoppingCart = {}
 
@@ -8,3 +8,5 @@ angular.module('Clothing').factory 'ShoppingCart', ($http) ->
 			if ShoppingCart.items.length > 0 then ShoppingCart.originalTotal = _.inject (_.map data, (item) -> item.price ), (sum, price) -> sum + price
 
 	return ShoppingCart
+
+]

@@ -1,4 +1,4 @@
-angular.module('Clothing').directive "addItem", ($http, $timeout) ->
+angular.module('Clothing').directive "addItem", ['$http', '$timeout', ($http, $timeout) ->
 
 	return {
 		link: ($scope, el, attrs) ->
@@ -12,3 +12,4 @@ angular.module('Clothing').directive "addItem", ($http, $timeout) ->
 						$scope.$parent.stockMessage = "You cannot add a product that is out of stock to your cart"
 						$timeout((-> $scope.$parent.stockMessage = null), 5000)
 	}
+]
